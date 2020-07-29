@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Employee Registration {% endblock%}
+
+{% block content %}
+    <div class="jumbotron">
+      <h1>Employee Registration</h1>
+        <p class="text-secondary">Django Project for implementing CURD operation</p>
+        <hr>
+      <form action="" method="POST">
+          {% csrf_token %}
+          {{form|crispy}}
+          <div class="row">
+              <div class="col-md-8">
+                  <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+              </div>
+              <div class="col-md-4">
+                  <a href="{% url 'list' %}" class="btn btn-secondary btn-lg btn-block">Back to List</a>
+              </div>
+          </div>
+      </form>
+    </div>
+{% endblock %}
